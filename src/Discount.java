@@ -32,9 +32,9 @@ public class Discount {
   }
 
   public static double applyOrdersOverAmountDiscount(
+    ArrayList<Item> items,
     double overAmount,
     double discountAmount,
-    ArrayList<Item> items,
     double price
   ) {
     double total = 0;

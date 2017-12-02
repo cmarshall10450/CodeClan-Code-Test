@@ -26,7 +26,7 @@ public class TestDiscount {
     items.add(new Item("Bread", 10));
     items.add(new Item("Milk", 10));
 
-    assertEquals(27, Discount.applyOrdersOverAmountDiscount(20, 10, items, 30), 0.01);
+    assertEquals(27, Discount.applyOrdersOverAmountDiscount(items,20, 10, 30), 0.01);
   }
 
 }
