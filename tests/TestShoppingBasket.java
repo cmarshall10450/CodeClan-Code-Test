@@ -16,11 +16,29 @@ public class TestShoppingBasket {
   }
 
   @Test
-  public void CanAddItem() {
+  public void canAddItem() {
     Item item = new Item("Eggs", 1.75);
     basket.addItem(item);
 
     assertEquals(1, basket.getItems().size());
+  }
+
+  @Test
+  public void canRemoveItem() {
+    Item item = new Item("Eggs", 1.75);
+    basket.addItem(item);
+    basket.removeItem(item);
+
+    assertEquals(0, basket.getItems().size());
+  }
+
+  @Test
+  public void canClearBasket() {
+    Item item = new Item("Eggs", 1.75);
+    basket.addItem(item);
+    basket.clear();
+
+    assertEquals(0, basket.getItems().size());
   }
 
 }

@@ -16,12 +16,12 @@ public class TestItem {
   }
 
   @Test
-  public void ItemHasName() {
+  public void itemHasName() {
     assertEquals("Eggs", item.getName());
   }
 
   @Test
-  public void ItemHasPrice() {
+  public void itemHasPrice() {
     assertEquals(1.75, item.getPrice(), 0.01);
   }
 

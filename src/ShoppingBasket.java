@@ -11,7 +11,16 @@ public class ShoppingBasket {
     this.items.add(item);
   }
 
+  public void removeItem(Sellable item) {
+    this.items.remove(item);
+  }
+
+  public void clear() {
+    this.items.clear();
+  }
+
   public ArrayList<Sellable> getItems() {
     return items;
   }
+
 }
