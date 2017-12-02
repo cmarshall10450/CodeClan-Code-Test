@@ -11,4 +11,7 @@ public class ShoppingBasket {
     this.items.add(item);
   }
 
+  public ArrayList<Sellable> getItems() {
+    return items;
+  }
 }
