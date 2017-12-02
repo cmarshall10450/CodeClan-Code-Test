@@ -7,18 +7,19 @@ import java.util.Map;
  */
 public class Discount {
 
-  public static double applyBuyOneGetOneFreeDiscount(ArrayList<Item> items, double price) {
+  public static void applyBuyOneGetOneFreeDiscount(ShoppingBasket basket) {
     HashMap<String, Integer> itemQuantities = new HashMap<>();
+    double price = 0;
 
     // Calculate the quantity of each item that has been added to the basket
-    for (Item item : items) {
+    for (Item item : basket.getItems()) {
       itemQuantities.merge(item.getName(), 1, (oldVal, newVal) -> {
         return oldVal + newVal;
       });
     }
 
     for (Map.Entry<String, Integer> entry : itemQuantities.entrySet()) {
-      Item item = getItemByName(entry.getKey(), items);
+      Item item = getItemByName(entry.getKey(), basket.getItems());
       double itemPrice = item.getPrice();
       int itemCount = entry.getValue();
       if (itemCount >= 2) {
@@ -28,25 +29,31 @@ public class Discount {
       }
     }
 
-    return price;
+    basket.setTotalPrice(price);
   }
 
-  public static double applyOrdersOverAmountDiscount(
-    ArrayList<Item> items,
+  public static void applyOrdersOverAmountDiscount(
+    ShoppingBasket basket,
     double overAmount,
-    double discountAmount,
-    double price
+    double discountAmount
   ) {
-    double total = 0;
-    for (Item item : items) {
-      total += item.getPrice();
-    }
 
-    if (total > overAmount) {
+    double price = basket.getTotalPrice();
+
+    if (price > overAmount) {
       price *= ((100 - discountAmount) / 100);
     }
 
-    return price;
+    basket.setTotalPrice(price);
+  }
+
+  public static void applyLoyaltyDiscount(ShoppingBasket basket, Person person, double discountAmount) {
+    double price = basket.getTotalPrice();
+    if (person.hasLoyaltyCard()) {
+      price *= ((100 - discountAmount) / 100);
+    }
+
+    basket.setTotalPrice(price);
   }
 
   private static Item getItemByName(String name, ArrayList<Item> items) {
@@ -58,4 +65,5 @@ public class Discount {
 
     return null;
   }
+
 }
