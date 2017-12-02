@@ -1,15 +1,14 @@
-import org.junit.Before;
+import java.util.ArrayList;
 
 /**
  * Created by chris on 02/12/2017.
  */
 public class ShoppingBasket {
 
-  ShoppingBasket basket;
+  ArrayList<Sellable> items = new ArrayList<>();
 
-  @Before
-  public void setup() {
-    basket = new ShoppingBasket();
+  public void addItem(Sellable item) {
+    this.items.add(item);
   }
 
 }

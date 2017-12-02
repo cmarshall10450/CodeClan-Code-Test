@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -5,6 +6,11 @@ import org.junit.Test;
  */
 public class TestShoppingBasket {
 
+  ShoppingBasket basket;
 
+  @Before
+  public void setup() {
+    basket = new ShoppingBasket();
+  }
 
 }
