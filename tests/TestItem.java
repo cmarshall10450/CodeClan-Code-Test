@@ -20,4 +20,9 @@ public class TestItem {
     assertEquals("Eggs", item.getName());
   }
 
+  @Test
+  public void ItemHasPrice() {
+    assertEquals(1.75, item.getPrice(), 0.01);
+  }
+
 }
