@@ -41,4 +41,12 @@ public class TestShoppingBasket {
     assertEquals(0, basket.getItems().size());
   }
 
+  @Test
+  public void canCalculateTotalPrice() {
+    basket.addItem(new Item("Eggs", 1.75));
+    basket.addItem(new Item("Bread", 1.19));
+
+    assertEquals(2.94, basket.calculateTotalPrice(), 0.01);
+  }
+
 }

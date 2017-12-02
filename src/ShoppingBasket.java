@@ -5,13 +5,13 @@ import java.util.ArrayList;
  */
 public class ShoppingBasket {
 
-  ArrayList<Sellable> items = new ArrayList<>();
+  ArrayList<Item> items = new ArrayList<>();
 
-  public void addItem(Sellable item) {
+  public void addItem(Item item) {
     this.items.add(item);
   }
 
-  public void removeItem(Sellable item) {
+  public void removeItem(Item item) {
     this.items.remove(item);
   }
 
@@ -19,7 +19,16 @@ public class ShoppingBasket {
     this.items.clear();
   }
 
-  public ArrayList<Sellable> getItems() {
+  public double calculateTotalPrice() {
+    double price = 0;
+    for (Item item : items) {
+      price += item.getPrice();
+    }
+
+    return price;
+  }
+
+  public ArrayList<Item> getItems() {
     return items;
   }
 

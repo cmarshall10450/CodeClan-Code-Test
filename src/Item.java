@@ -1,7 +1,7 @@
 /**
  * Created by chris on 02/12/2017.
  */
-public class Item implements Sellable {
+public class Item {
 
   String name;
   double price;
