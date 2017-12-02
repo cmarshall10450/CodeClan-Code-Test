@@ -25,4 +25,10 @@ public class TestPerson {
     assertEquals(false, person.hasLoyaltyCard());
   }
 
+  @Test
+  public void canObtainALoyaltyCard() {
+    person.obtainLoyaltyCard();
+    assertEquals(true, person.hasLoyaltyCard());
+  }
+
 }
