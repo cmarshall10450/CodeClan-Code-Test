@@ -3,8 +3,8 @@
  */
 public class Person {
 
-  String name;
-  boolean hasLoyaltyCard;
+  private String name;
+  private boolean hasLoyaltyCard;
 
   public Person(String name) {
     this.name = name;

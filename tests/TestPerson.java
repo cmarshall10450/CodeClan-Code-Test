@@ -20,4 +20,9 @@ public class TestPerson {
     assertEquals("Chris", person.getName());
   }
 
+  @Test
+  public void doesNotHaveLoyaltyCardToStartWith() {
+    assertEquals(false, person.hasLoyaltyCard());
+  }
+
 }
