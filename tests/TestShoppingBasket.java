@@ -43,10 +43,11 @@ public class TestShoppingBasket {
 
   @Test
   public void canCalculateTotalPrice() {
-    basket.addItem(new Item("Eggs", 1.75));
-    basket.addItem(new Item("Bread", 1.19));
+    basket.addItem(new Item("Eggs", 2));
+    basket.addItem(new Item("Bread", 4));
+    basket.addItem(new Item("Eggs", 2));
 
-    assertEquals(2.94, basket.calculateTotalPrice(), 0.01);
+    assertEquals(6, basket.calculateTotalPrice(), 0.01);
   }
 
 }

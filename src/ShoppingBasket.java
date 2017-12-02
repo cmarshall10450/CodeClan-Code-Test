@@ -21,15 +21,11 @@ public class ShoppingBasket {
 
   public double calculateTotalPrice() {
     double price = 0;
-    for (Item item : items) {
-      price += item.getPrice();
-    }
-
+    price = Discount.applyBuyOneGetOneFreeDiscount(items, price);
     return price;
   }
 
   public ArrayList<Item> getItems() {
     return items;
   }
-
 }
