@@ -31,14 +31,18 @@ public class Discount {
     return price;
   }
 
-  public static double applyOrdersOverAmountDiscount(double overAmount, double discountAmount, ArrayList<Item> items) {
-    double price = 0;
-
+  public static double applyOrdersOverAmountDiscount(
+    double overAmount,
+    double discountAmount,
+    ArrayList<Item> items,
+    double price
+  ) {
+    double total = 0;
     for (Item item : items) {
-      price += item.getPrice();
+      total += item.getPrice();
     }
 
-    if (price > overAmount) {
+    if (total > overAmount) {
       price *= ((100 - discountAmount) / 100);
     }
 

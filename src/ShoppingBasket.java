@@ -22,6 +22,7 @@ public class ShoppingBasket {
   public double calculateTotalPrice() {
     double price = 0;
     price = Discount.applyBuyOneGetOneFreeDiscount(items, price);
+    price = Discount.applyOrdersOverAmountDiscount(20, 10, items, price);
     return price;
   }
 
