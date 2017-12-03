@@ -25,6 +25,7 @@ public class ShoppingBasket {
 
   public void clear() {
     this.items.clear();
+    this.totalPrice = 0;
   }
 
   public ArrayList<Item> getItems() {
@@ -37,5 +38,14 @@ public class ShoppingBasket {
 
   public void setTotalPrice(double totalPrice) {
     this.totalPrice = totalPrice;
+  }
+
+  public Item getItemByName(String name) {
+    for (Item item : items) {
+      if (item.getName().equals(name)) {
+        return item;
+      }
+    }
+    return null;
   }
 }

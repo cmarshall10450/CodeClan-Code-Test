@@ -47,7 +47,22 @@ public class TestShoppingBasket {
     basket.addItem(new Item("Bread", 4));
     basket.addItem(new Item("Eggs", 2));
 
-    assertEquals(6, basket.getTotalPrice(), 0.01);
+    assertEquals(8, basket.getTotalPrice(), 0.01);
   }
+
+  @Test
+  public void canSetTotalPrice() {
+    basket.setTotalPrice(10);
+    assertEquals(10, basket.getTotalPrice(), 0.01);
+  }
+
+  @Test
+  public void canGetItems() {
+    Item item = new Item("Eggs", 2);
+    basket.addItem(item);
+
+    assertEquals(item, basket.getItems().get(0));
+  }
+
 
 }

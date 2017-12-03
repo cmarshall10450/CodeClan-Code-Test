@@ -21,6 +21,17 @@ public class TestDiscount {
   }
 
   @Test
+  public void basketIsNotAffectedIfDiscountDoesNotApply() {
+    ShoppingBasket basket = new ShoppingBasket();
+    basket.addItem(new Item("Milk", 1.5));
+    basket.addItem(new Item("Corned Beef", 1.8));
+
+    Discount.applyBuyOneGetOneFreeDiscount(basket);
+
+    assertEquals(3.3, basket.getTotalPrice(), 0.01);
+  }
+
+  @Test
   public void doesNotApplyDiscountIfOrderIsUnder20() {
     ShoppingBasket basket = new ShoppingBasket();
     basket.addItem(new Item("Flash", 3.9));
@@ -63,6 +74,22 @@ public class TestDiscount {
     Discount.applyLoyaltyDiscount(basket, person, 2);
 
     assertEquals(17.15, basket.getTotalPrice(), 0.01);
+  }
+
+  @Test
+  public void loyaltyDiscountIsNotAppliedIfCustomerDoesNotHaveALoyaltyCard() {
+    Person person = new Person("Chris");
+
+    ShoppingBasket basket = new ShoppingBasket();
+    basket.addItem(new Item("Flash", 3.9));
+    basket.addItem(new Item("Arial", 6.5));
+    basket.addItem(new Item("Coffee", 4.1));
+    basket.addItem(new Item("McCoys", 1.1));
+    basket.addItem(new Item("Tetley Tea Bags", 1.9));
+
+    Discount.applyLoyaltyDiscount(basket, person, 2);
+
+    assertEquals(17.5, basket.getTotalPrice(), 0.01);
   }
 
   @Test
