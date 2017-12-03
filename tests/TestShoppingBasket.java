@@ -64,5 +64,14 @@ public class TestShoppingBasket {
     assertEquals(item, basket.getItems().get(0));
   }
 
+  @Test
+  public void canGetItemByName() {
+    Item expected = new Item("Eggs", 2);
+    basket.addItem(expected);
+
+    Item actual = basket.getItemByName("Eggs");
+    assertEquals(expected.getName(), actual.getName());
+  }
+
 
 }
