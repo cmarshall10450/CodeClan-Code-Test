@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Created by chris on 02/12/2017.
  */
-public class ShoppingBasket {
+public class ShoppingBasket implements Discountable {
 
   ArrayList<Item> items;
   double totalPrice;
@@ -40,6 +40,12 @@ public class ShoppingBasket {
     this.totalPrice = totalPrice;
   }
 
+  /**
+   * Searches for an item in the baskets list by the name of the item
+   *
+   * @param name
+   * @return Returns an item if it is found, otherwise returns null
+   */
   public Item getItemByName(String name) {
     for (Item item : items) {
       if (item.getName().equals(name)) {
@@ -49,6 +55,12 @@ public class ShoppingBasket {
     return null;
   }
 
+  /**
+   * Disccounts are applied in a particular order and the new price is
+   * only calculated after previous discounts have been applied.
+   *
+   * @param person The person who is applying the loyalty discount
+   */
   public void applyDiscounts(Person person) {
     Discount.applyBuyOneGetOneFreeDiscount(this);
     Discount.applyOrdersOverAmountDiscount(this, 20, 10);
