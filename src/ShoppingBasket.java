@@ -48,4 +48,10 @@ public class ShoppingBasket {
     }
     return null;
   }
+
+  public void applyDiscounts(Person person) {
+    Discount.applyBuyOneGetOneFreeDiscount(this);
+    Discount.applyOrdersOverAmountDiscount(this, 20, 10);
+    Discount.applyLoyaltyDiscount(this, person, 2);
+  }
 }

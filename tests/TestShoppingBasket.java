@@ -73,5 +73,20 @@ public class TestShoppingBasket {
     assertEquals(expected.getName(), actual.getName());
   }
 
+  @Test
+  public void basketCanApplyAllDiscountsToItself() {
+    Person person = new Person("Chris", true);
+
+    basket.addItem(new Item("Coffee", 5));
+    basket.addItem(new Item("Cheese", 5));
+    basket.addItem(new Item("Arial", 6.5));
+    basket.addItem(new Item("Flash", 5.5));
+    basket.addItem(new Item("Coffee", 5));
+    basket.addItem(new Item("Domestos", 3.9));
+    basket.addItem(new Item("Cheese", 5));
+
+    basket.applyDiscounts(person);
+    assertEquals(22.84, basket.getTotalPrice(), 0.01);
+  }
 
 }
